@@ -39,6 +39,12 @@ filetype plugin indent on     " required
 " Put your stuff after this line
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-fugitive'
+Bundle 'scrooloose/nerdtree'
+Bundle 'altercation/vim-colors-solarized'
 
-
+colorscheme solarized
 let g:airline_powerline_fonts = 1
+
+" NERDTree
+let NERDTreeHighlightCursorline=1
+map <C-n> :NERDTreeToggle<CR>
