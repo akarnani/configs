@@ -1,4 +1,5 @@
 {
     "vimrc" : "~/.vimrc",
-    "tmux.conf" : "~/.tmux.conf"
+    "tmux.conf" : "~/.tmux.conf",
+    "gvimrc" : "~/.gvimrc"
 }

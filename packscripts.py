@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 #################################### LICENCE ###################################
 # Copyright (c) 2012, Asher Glick                                              #
