@@ -1,5 +1,7 @@
 {
     "vimrc" : "~/.vimrc",
     "tmux.conf" : "~/.tmux.conf",
-    "gvimrc" : "~/.gvimrc"
+    "gvimrc" : "~/.gvimrc",
+    "powerline": "~/.config/powerline/config.json",
+    "powerline_tmux_theme": "~/.config/powerline/themes/tmux/default.json"
 }
