@@ -3,6 +3,7 @@
 	name = Andrew Karnani
 [core]
 	ignorecase = true
+	attributesfile = /Users/akarnani/.gitattributes
     #excludesfile = /Users/akarnani/.gitignore_global
 [grep]
 	lineNumber = true
