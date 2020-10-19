@@ -1,0 +1,49 @@
+[user]
+	email = akarnani@palantir.com
+	name = Andrew Karnani
+[core]
+	ignorecase = true
+    #excludesfile = /Users/akarnani/.gitignore_global
+[grep]
+	lineNumber = true
+[diff]
+[difftool "diffmerge"]
+	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
+[merge]
+	defaultToUpstream = true
+	tool = diffmerge
+[mergetool "diffmerge"]
+	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
+	trustExitCode = true
+[mergetool]
+	keepBackup = false
+[push]
+	default = current
+[color "diff"]
+	whitespace = red reverse
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+	tool = diffmerge
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	required = true
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+[hub]
+	host = github.palantir.build
+	protocol = ssh
+[commit]
+	gpgSign = true
+[url "git@github.palantir.build:"]
+	insteadOf = https://github.palantir.build/
+[tag]
+	forceSignAnnotated = true
+[gpg]
+	program = /usr/local/bin/krgpg
+[init]
+    #templatedir = ~/.git_template
+[credential]
+	helper = store
+[rebase]
+	autoStash = true
