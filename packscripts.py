@@ -89,7 +89,7 @@ def getTerminalSize():
 def cycleFiles(beginningComment, functiontorun, verbose=False, sucessMessage="Sucess"):
     (width, height) = getTerminalSize()
 
-    print beginningComment
+    print(beginningComment)
 
     for element in data:
         output = ""
@@ -98,13 +98,13 @@ def cycleFiles(beginningComment, functiontorun, verbose=False, sucessMessage="Su
         localPath = os.path.expanduser("configs/"+element)
         localPath = os.path.abspath(localPath)
 
-        #print localPath
+        #print(localPath)
 
         symbolicLink = ""
         try:
             symbolicLink = os.readlink(path)
         except OSError:
-            #print "NOT LINK"
+            #print("NOT LINK")
             pass
 
         filesDiffer = True
@@ -143,7 +143,7 @@ def cycleFiles(beginningComment, functiontorun, verbose=False, sucessMessage="Su
         output = " " + color + element + ENDC + " " + ("."*(width-6-len(element)-len(info))) + color + " ["+info+"]" + ENDC
         if(verbose):
             output += "\n  " + path
-        print output
+        print(output)
 
 
 ################################# RESTORE COPY #################################
@@ -177,8 +177,8 @@ def nullFunction(localFile, targetFile):
 ################################################################################
 def linkFiles(localFile, targetFile):
     #pass
-    print localFile
-    print targetFile
+    print(localFile)
+    print(targetFile)
     if os.path.exists(targetFile):
         os.remove(targetFile)
     os.symlink(localFile, targetFile)
@@ -197,7 +197,7 @@ if __name__ == "__main__":
                     backupCopy(localPath, path)
                     cycleFiles("Backing Up Files", nullFunction, verbose=False, sucessMessage="Different Files")
                 else:
-                    print "Unknown File to Restore"
+                    print("Unknown File to Restore")
             else:
                 cycleFiles("Beginning Backup", backupCopy, verbose=False, sucessMessage="Backed Up")
         elif sys.argv[1] == "restore":
@@ -210,7 +210,7 @@ if __name__ == "__main__":
                     restoreCopy(localPath, path)
                     cycleFiles("Restoring Files", nullFunction, verbose=False, sucessMessage="Different Files")
                 else:
-                    print "Unknown File to Restore"
+                    print("Unknown File to Restore")
             else:
                 cycleFiles("Beginning Restore", restoreCopy, verbose=False, sucessMessage="Extracted")
 
@@ -224,9 +224,9 @@ if __name__ == "__main__":
                     linkFiles(localPath, path)
                     cycleFiles("Linking Files", nullFunction, verbose=True, sucessMessage="Different Files")
                 else:
-                    print "Unknown File to Link"
+                    print("Unknown File to Link")
             else:
-                print "You need to specify a file you want to have linked"
+                print("You need to specify a file you want to have linked")
     else:
-        print "Options: backup, restore, link"
+        print("Options: backup, restore, link")
         cycleFiles("Beginning Check", nullFunction, verbose=False, sucessMessage="Different Files")
