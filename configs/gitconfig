@@ -1,6 +1,7 @@
 [user]
 	email = akarnani@palantir.com
 	name = Andrew Karnani
+    signingkey = D9109D77ED2820D08592F72A6E1EEF27B0FC71FD
 [core]
 	ignorecase = true
 	attributesfile = /Users/akarnani/.gitattributes
@@ -40,9 +41,8 @@
 	insteadOf = https://github.palantir.build/
 [tag]
 	forceSignAnnotated = true
-[gpg]
-	program = /usr/local/bin/krgpg
 [init]
+	defaultBranch = develop
     #templatedir = ~/.git_template
 [credential]
 	helper = store
