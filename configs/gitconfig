@@ -1,24 +1,28 @@
 [user]
 	email = akarnani@palantir.com
 	name = Andrew Karnani
-    signingkey = D9109D77ED2820D08592F72A6E1EEF27B0FC71FD
+	signingkey = 6E1EEF27B0FC71FD
 [core]
 	ignorecase = true
 	attributesfile = /Users/akarnani/.gitattributes
+	editor = vim
+	excludesfile = /Users/akarnani/.gitignore
     #excludesfile = /Users/akarnani/.gitignore_global
 [grep]
 	lineNumber = true
 [diff]
+	tool = Kaleidoscope
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
 [merge]
 	defaultToUpstream = true
-	tool = diffmerge
+	tool = Kaleidoscope
 [mergetool "diffmerge"]
 	cmd = "diffmerge --merge --result=\"$MERGED\" \"$LOCAL\" \"$(if test -f \"$BASE\"; then echo \"$BASE\"; else echo \"$LOCAL\"; fi)\" \"$REMOTE\""
 	trustExitCode = true
 [mergetool]
 	keepBackup = false
+	prompt = false
 [push]
 	default = current
 [color "diff"]
@@ -36,11 +40,12 @@
 	host = github.palantir.build
 	protocol = ssh
 [commit]
-	gpgSign = true
+	gpgsign = true
 [url "git@github.palantir.build:"]
 	insteadOf = https://github.palantir.build/
 [tag]
 	forceSignAnnotated = true
+	gpgsign = true
 [init]
 	defaultBranch = develop
     #templatedir = ~/.git_template
@@ -48,3 +53,12 @@
 	helper = store
 [rebase]
 	autoStash = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[url "git@github.com:"]
+	insteadof = https://github.com/
